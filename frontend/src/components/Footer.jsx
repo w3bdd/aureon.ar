@@ -20,7 +20,7 @@ const SERVICES = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-onyx/60">
+    <footer className="border-t border-line bg-[var(--onyx-60)]">
       <div className="px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto pt-20 pb-10">
         <p className="font-serif font-light leading-none tracking-tight text-stroke text-[clamp(4rem,15vw,13rem)] select-none">
           AUREON

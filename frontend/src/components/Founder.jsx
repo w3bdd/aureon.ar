@@ -5,7 +5,7 @@ const PORTRAIT =
 
 export default function Founder() {
   return (
-    <section id="founder" className="py-24 lg:py-36 bg-onyx/40 border-y border-line">
+    <section id="founder" className="py-24 lg:py-36 bg-[var(--onyx-40)] border-y border-line">
       <div
         data-testid="founder-biography-section"
         className="px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-start"

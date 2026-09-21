@@ -41,7 +41,7 @@ const Intro = () => (
       initial={{ scaleX: 0 }}
       animate={{ scaleX: 1 }}
       transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className="mt-6 h-px w-40 origin-left bg-bronze/70"
+      className="mt-6 h-px w-40 origin-left bg-[var(--bronze-70)]"
     />
   </motion.div>
 );

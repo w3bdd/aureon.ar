@@ -187,10 +187,10 @@ export default function Portfolio() {
               className="pointer-events-none fixed left-0 top-0 z-40 hidden lg:block"
             >
               <div className="-translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2">
-                <div className="w-10 h-10 border border-bronze/80 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 border border-[var(--bronze-80)] rounded-full flex items-center justify-center">
                   <span className="w-1 h-1 bg-bronze rounded-full" />
                 </div>
-                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-bronze bg-obsidian/80 px-2 py-1 border border-line">
+                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-bronze bg-[var(--badgebg)] px-2 py-1 border border-line">
                   View Project
                 </span>
               </div>
@@ -211,7 +211,7 @@ export default function Portfolio() {
                   onClick={() => setSelected(p)}
                   className={`group relative text-left col-span-1 ${p.span}`}
                 >
-                  <div className="clip-corner overflow-hidden border border-line group-hover:border-bronze/50 transition-colors duration-500">
+                  <div className="clip-corner overflow-hidden border border-line group-hover:border-[var(--bronze-50)] transition-colors duration-500">
                     <div className="overflow-hidden">
                       <img
                         src={p.img}
@@ -251,7 +251,7 @@ export default function Portfolio() {
             className="fixed inset-0 z-[70] flex items-center justify-center p-4 sm:p-8"
           >
             <div
-              className="absolute inset-0 bg-obsidian/90 backdrop-blur-md"
+              className="absolute inset-0 bg-[var(--modalbg)] backdrop-blur-md"
               onClick={() => setSelected(null)}
             />
             <motion.div
@@ -267,7 +267,7 @@ export default function Portfolio() {
                   alt={selected.title}
                   className="h-64 md:h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/50 to-transparent md:bg-gradient-to-r" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--obsidian-50)] to-transparent md:bg-gradient-to-r" />
               </div>
               <div className="p-8 lg:p-10">
                 <p className="eyebrow">
@@ -302,7 +302,7 @@ export default function Portfolio() {
                 data-testid="portfolio-project-modal-close-button"
                 onClick={() => setSelected(null)}
                 aria-label="Close project details"
-                className="absolute top-4 right-4 w-10 h-10 bg-obsidian/70 backdrop-blur border border-line flex items-center justify-center text-bone hover:border-bronze hover:text-bronze transition-colors duration-300"
+                className="absolute top-4 right-4 w-10 h-10 bg-[var(--panelbg)] backdrop-blur border border-line flex items-center justify-center text-bone hover:border-bronze hover:text-bronze transition-colors duration-300"
               >
                 <X className="w-4 h-4" />
               </button>

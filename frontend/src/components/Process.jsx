@@ -11,7 +11,7 @@ const STEPS = [
 
 export default function Process() {
   return (
-    <section id="approach" className="py-24 lg:py-36 bg-onyx/40 border-y border-line relative overflow-hidden">
+    <section id="approach" className="py-24 lg:py-36 bg-[var(--onyx-40)] border-y border-line relative overflow-hidden">
       <div className="absolute inset-0 blueprint-grid opacity-60 pointer-events-none" />
       <div className="relative px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 lg:mb-20">

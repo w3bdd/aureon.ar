@@ -191,7 +191,7 @@ export default function Contact() {
                         onClick={() => toggleService(s)}
                         className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.12em] px-3.5 py-2.5 border rounded-full transition-colors duration-300 ${
                           active
-                            ? "border-bronze text-bronze bg-bronze/10"
+                            ? "border-bronze text-bronze bg-[var(--bronze-10)]"
                             : "border-line text-faint hover:text-bone hover:border-edge"
                         }`}
                       >

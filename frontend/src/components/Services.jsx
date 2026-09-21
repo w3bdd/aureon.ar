@@ -45,7 +45,7 @@ export default function Services() {
   const [open, setOpen] = useState(1);
 
   return (
-    <section id="services" className="py-24 lg:py-36 bg-onyx/40 border-y border-line">
+    <section id="services" className="py-24 lg:py-36 bg-[var(--onyx-40)] border-y border-line">
       <div className="px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 lg:mb-20">
           <SectionHead
@@ -116,7 +116,7 @@ export default function Services() {
                             {s.items.map((item) => (
                               <span
                                 key={item}
-                                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ash border border-line rounded-full px-3.5 py-2 hover:border-bronze/60 hover:text-bone transition-colors duration-300"
+                                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ash border border-line rounded-full px-3.5 py-2 hover:border-[var(--bronze-60)] hover:text-bone transition-colors duration-300"
                               >
                                 {item}
                               </span>

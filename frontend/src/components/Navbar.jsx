@@ -42,13 +42,13 @@ export default function Navbar() {
         transition={{ delay: 1.9, duration: 0.9, ease: EASE }}
         className="w-full max-w-6xl pointer-events-auto"
       >
-        <div className="backdrop-blur-xl bg-obsidian/80 border border-line rounded-full pl-4 pr-3 sm:pl-6 sm:pr-4 py-3 flex items-center justify-between shadow-2xl shadow-black/40">
+        <div className="backdrop-blur-xl bg-[var(--navbg)] border border-line rounded-full pl-4 pr-3 sm:pl-6 sm:pr-4 py-3 flex items-center justify-between shadow-2xl shadow-black/40">
           <button
             data-testid="navbar-logo-link"
             onClick={() => go(0)}
             className="flex items-center gap-3 group"
           >
-            <span className="w-8 h-8 border border-bronze/70 flex items-center justify-center font-serif text-bronze text-lg leading-none group-hover:bg-bronze group-hover:text-obsidian transition-colors duration-300">
+            <span className="w-8 h-8 border border-[var(--bronze-70)] flex items-center justify-center font-serif text-bronze text-lg leading-none group-hover:bg-bronze group-hover:text-onbronze transition-colors duration-300">
               A
             </span>
             <span className="font-serif text-lg sm:text-xl tracking-[0.18em] text-bone">
@@ -106,7 +106,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-[60] bg-obsidian/[0.985] backdrop-blur-lg flex flex-col"
+            className="fixed inset-0 z-[60] bg-[var(--overlay)] backdrop-blur-lg flex flex-col"
           >
             <div className="flex items-center justify-between px-6 py-6">
               <span className="font-serif text-xl tracking-[0.18em] text-bone">AUREON</span>

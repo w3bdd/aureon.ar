@@ -17,6 +17,25 @@
     --onbronze: #1B1915;
     --stroke: rgba(243, 235, 219, 0.14);
     --gridline: rgba(243, 235, 219, 0.04);
+    --navbg: rgba(27, 25, 21, 0.82);
+    --overlay: rgba(27, 25, 21, 0.985);
+    --modalbg: rgba(27, 25, 21, 0.9);
+    --panelbg: rgba(27, 25, 21, 0.7);
+    --badgebg: rgba(27, 25, 21, 0.8);
+    --onyx-40: rgba(35, 32, 26, 0.42);
+    --onyx-60: rgba(35, 32, 26, 0.6);
+    --palm-30: rgba(46, 74, 59, 0.32);
+    --bronze-08: rgba(201, 111, 74, 0.08);
+    --bronze-10: rgba(201, 111, 74, 0.12);
+    --bronze-50: rgba(201, 111, 74, 0.5);
+    --bronze-60: rgba(201, 111, 74, 0.6);
+    --bronze-70: rgba(201, 111, 74, 0.7);
+    --bronze-80: rgba(201, 111, 74, 0.8);
+    --obsidian-40: rgba(27, 25, 21, 0.55);
+    --obsidian-50: rgba(27, 25, 21, 0.5);
+    --obsidian-70: rgba(27, 25, 21, 0.8);
+    --line-80: rgba(58, 52, 40, 0.8);
+    --hero-shadow: rgba(10, 9, 7, 0.55);
 }
 
 html.light {
@@ -36,6 +55,25 @@ html.light {
     --onbronze: #FBF5EA;
     --stroke: rgba(41, 35, 25, 0.18);
     --gridline: rgba(41, 35, 25, 0.06);
+    --navbg: rgba(245, 239, 226, 0.86);
+    --overlay: rgba(245, 239, 226, 0.97);
+    --modalbg: rgba(245, 239, 226, 0.93);
+    --panelbg: rgba(245, 239, 226, 0.78);
+    --badgebg: rgba(245, 239, 226, 0.88);
+    --onyx-40: rgba(237, 228, 210, 0.55);
+    --onyx-60: rgba(237, 228, 210, 0.7);
+    --palm-30: rgba(46, 74, 59, 0.15);
+    --bronze-08: rgba(184, 92, 56, 0.07);
+    --bronze-10: rgba(184, 92, 56, 0.14);
+    --bronze-50: rgba(184, 92, 56, 0.55);
+    --bronze-60: rgba(184, 92, 56, 0.65);
+    --bronze-70: rgba(184, 92, 56, 0.75);
+    --bronze-80: rgba(184, 92, 56, 0.85);
+    --obsidian-40: rgba(245, 239, 226, 0.55);
+    --obsidian-50: rgba(245, 239, 226, 0.55);
+    --obsidian-70: rgba(245, 239, 226, 0.82);
+    --line-80: rgba(220, 207, 180, 0.85);
+    --hero-shadow: rgba(245, 239, 226, 0.9);
 }
 
 @tailwind base;
@@ -151,6 +189,10 @@ html.light {
     letter-spacing: 0.28em;
     font-size: 0.68rem;
     color: var(--bronze);
+}
+
+.hero-glow {
+    text-shadow: 0 2px 26px var(--hero-shadow), 0 1px 8px var(--hero-shadow);
 }
 
 .blueprint-grid {

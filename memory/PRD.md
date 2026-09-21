@@ -65,6 +65,14 @@ parallax hero moment.
   no-flash init script in index.html. Fixed stale hardcoded #0b0c0e in
   App.css that kept the app shell dark in light mode. Verified dark -> light
   -> persists after reload -> dark, with computed-style assertions.
+- 2026-09-21 (later): Fixed site-wide unreadable text — Tailwind did not
+  emit color-mix for var-based colors with /opacity modifiers, so every
+  bg-*/xx class (hero scrim, navbar pill, section bands, modal backdrop)
+  rendered fully transparent. Replaced all ~20 usages with baked RGBA
+  per-theme CSS variables via arbitrary-value classes, strengthened the hero
+  scrim (vertical + left gradients) and added theme-aware hero-glow
+  text-shadow. Verified: computed pill bg opaque in both themes, hero and
+  all sections readable in dark and light, modal backdrop dims correctly.
 
 ## Backlog
 - P0: Replace fictional placeholder contact details/CEO info with real data

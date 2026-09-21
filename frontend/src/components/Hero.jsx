@@ -51,8 +51,9 @@ export default function Hero() {
           alt="Modern architectural residence at dusk"
           className="w-full h-full object-cover scale-[1.12]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-obsidian/70 via-obsidian/40 to-obsidian" />
-        <div className="absolute inset-0 bg-bronze/[0.08] mix-blend-soft-light" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--obsidian-70)] via-[var(--obsidian-40)] to-obsidian" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--obsidian-70)] via-[var(--obsidian-40)] to-transparent" />
+        <div className="absolute inset-0 bg-[var(--bronze-08)] mix-blend-soft-light" />
         <div className="absolute inset-0 blueprint-grid" />
       </motion.div>
 
@@ -65,7 +66,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.45, duration: 0.9 }}
-            className="eyebrow [text-shadow:0_1px_14px_rgba(27,25,21,0.9)]"
+            className="eyebrow hero-glow"
             data-testid="hero-tagline"
           >
             Aureon Architecture &amp; Builders — Est. 2016 · Angeles City, Pampanga
@@ -73,7 +74,7 @@ export default function Hero() {
 
           <h1
             data-testid="hero-title"
-            className="mt-6 font-serif font-light tracking-tight leading-[0.98] text-bone text-[clamp(3.4rem,11vw,9.5rem)]"
+            className="mt-6 font-serif font-light tracking-tight leading-[0.98] text-bone hero-glow text-[clamp(3.4rem,11vw,9.5rem)]"
           >
             <MaskedLine delay={1.55}>Design.</MaskedLine>
             <MaskedLine delay={1.68}>Build.</MaskedLine>
@@ -90,7 +91,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.05, duration: 0.9, ease: EASE }}
-            className="max-w-md text-base sm:text-lg font-light leading-relaxed text-ash"
+            className="max-w-md text-base sm:text-lg font-light leading-relaxed text-ash hero-glow"
           >
             Creating thoughtful spaces. Building lasting structures. Continuing a
             family legacy — from concept to completion since 2016.
@@ -124,7 +125,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.45, duration: 1 }}
-          className="mt-14 pt-8 border-t border-line/80 grid grid-cols-3 gap-6"
+          className="mt-14 pt-8 border-t border-[var(--line-80)] grid grid-cols-3 gap-6"
         >
           {STATS.map((s) => (
             <div key={s.label}>
