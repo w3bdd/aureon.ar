@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Sun, Moon } from "lucide-react";
 import { EASE, scrollToId } from "./Reveal";
 
 const LINKS = [
@@ -14,6 +14,20 @@ const LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [light, setLight] = useState(false);
+
+  useEffect(() => {
+    setLight(document.documentElement.classList.contains("light"));
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !light;
+    setLight(next);
+    document.documentElement.classList.toggle("light", next);
+    try {
+      localStorage.setItem("aureon-theme", next ? "light" : "dark");
+    } catch (e) {}
+  };
   const go = (href) => {
     setOpen(false);
     setTimeout(() => scrollToId(href), open ? 250 : 0);
@@ -56,6 +70,14 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <button
+              data-testid="navbar-theme-toggle"
+              onClick={toggleTheme}
+              aria-label={light ? "Switch to dark mode" : "Switch to light mode"}
+              className="w-10 h-10 flex items-center justify-center border border-line rounded-full text-ash hover:text-bronze hover:border-bronze transition-colors duration-300"
+            >
+              {light ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            </button>
             <button
               data-testid="navbar-cta-consultation-button"
               onClick={() => go("#contact")}

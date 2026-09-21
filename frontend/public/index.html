@@ -11,6 +11,13 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <title>Aureon Architecture & Builders — Design. Build. Endure.</title>
+        <script>
+            try {
+                if (localStorage.getItem("aureon-theme") === "light") {
+                    document.documentElement.classList.add("light");
+                }
+            } catch (e) {}
+        </script>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
     </head>

@@ -38,7 +38,7 @@ export default function Values() {
           ))}
           <Reveal delay={0.42} y={26} className="bg-bronze">
             <div className="h-full p-7 lg:p-9 flex items-center">
-              <p className="font-serif text-xl lg:text-2xl font-light italic leading-snug text-obsidian">
+              <p className="font-serif text-xl lg:text-2xl font-light italic leading-snug text-onbronze">
                 "Design with purpose. Build with integrity."
               </p>
             </div>

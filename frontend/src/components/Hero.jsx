@@ -113,7 +113,7 @@ export default function Hero() {
             <button
               data-testid="hero-book-consultation-button"
               onClick={() => scrollToId("#contact")}
-              className="inline-flex items-center gap-2 bg-bronze rounded-full text-obsidian text-sm font-semibold px-7 py-3.5 hover:bg-bone transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-bronze rounded-full text-onbronze text-sm font-semibold px-7 py-3.5 hover:bg-bone transition-colors duration-300"
             >
               Book a Consultation
             </button>

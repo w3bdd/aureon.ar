@@ -268,7 +268,7 @@ export default function Contact() {
                 data-testid="consultation-form-submit-button"
                 type="submit"
                 disabled={sending}
-                className="mt-9 w-full inline-flex items-center justify-center gap-2 bg-bronze rounded-full text-obsidian text-sm font-semibold px-7 py-4 hover:bg-bone disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
+                className="mt-9 w-full inline-flex items-center justify-center gap-2 bg-bronze rounded-full text-onbronze text-sm font-semibold px-7 py-4 hover:bg-bone disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
               >
                 {sending ? (
                   <>

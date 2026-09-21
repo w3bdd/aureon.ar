@@ -1,5 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
+:root {
+    --obsidian: #1B1915;
+    --onyx: #23201A;
+    --surface: #2A261E;
+    --raised: #332E24;
+    --line: #3A3428;
+    --edge: #4C4433;
+    --bronze: #C96F4A;
+    --bronzedeep: #A85432;
+    --bone: #F3EBDB;
+    --ash: #B3A78D;
+    --faint: #7C7160;
+    --palm: #2E4A3B;
+    --palmlight: #3F6151;
+    --onbronze: #1B1915;
+    --stroke: rgba(243, 235, 219, 0.14);
+    --gridline: rgba(243, 235, 219, 0.04);
+}
+
+html.light {
+    --obsidian: #F5EFE2;
+    --onyx: #EDE4D2;
+    --surface: #FCF8EE;
+    --raised: #FFFFFF;
+    --line: #DCCFB4;
+    --edge: #C3B48F;
+    --bronze: #B85C38;
+    --bronzedeep: #9C4A2B;
+    --bone: #292319;
+    --ash: #5C5340;
+    --faint: #8A7E68;
+    --palm: #2E4A3B;
+    --palmlight: #3F6151;
+    --onbronze: #FBF5EA;
+    --stroke: rgba(41, 35, 25, 0.18);
+    --gridline: rgba(41, 35, 25, 0.06);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,30 +83,31 @@
     }
     body {
         margin: 0;
-        background-color: #1B1915;
-        color: #F3EBDB;
+        background-color: var(--obsidian);
+        color: var(--bone);
         font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
+        transition: background-color 0.5s ease, color 0.5s ease;
     }
     ::selection {
-        background: #C96F4A;
-        color: #1B1915;
+        background: var(--bronze);
+        color: var(--onbronze);
     }
     ::-webkit-scrollbar {
         width: 10px;
     }
     ::-webkit-scrollbar-track {
-        background: #1B1915;
+        background: var(--obsidian);
     }
     ::-webkit-scrollbar-thumb {
-        background: #3A3428;
-        border: 2px solid #1B1915;
+        background: var(--line);
+        border: 2px solid var(--obsidian);
         border-radius: 8px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: #A85432;
+        background: var(--bronzedeep);
     }
 }
 
@@ -111,13 +150,13 @@
     text-transform: uppercase;
     letter-spacing: 0.28em;
     font-size: 0.68rem;
-    color: #C96F4A;
+    color: var(--bronze);
 }
 
 .blueprint-grid {
     background-image:
-        linear-gradient(rgba(243, 235, 219, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(243, 235, 219, 0.04) 1px, transparent 1px);
+        linear-gradient(var(--gridline) 1px, transparent 1px),
+        linear-gradient(90deg, var(--gridline) 1px, transparent 1px);
     background-size: 88px 88px;
 }
 
@@ -148,7 +187,7 @@
 }
 
 .text-stroke {
-    -webkit-text-stroke: 1px rgba(244, 243, 239, 0.14);
+    -webkit-text-stroke: 1px var(--stroke);
     color: transparent;
 }
 
@@ -157,6 +196,6 @@
 }
 
 select option {
-    background-color: #23201A;
-    color: #F3EBDB;
+    background-color: var(--onyx);
+    color: var(--bone);
 }

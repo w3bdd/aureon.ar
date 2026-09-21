@@ -59,6 +59,12 @@ parallax hero moment.
   Cormorant, rounded pills/chips/inputs mixed with clipped architectural
   frames, deep-green marquee band, warmer portfolio photography
   (timber/concrete/glass, tropical landscaping).
+- 2026-09-21 (later): Dark/light theme switching — palette moved to CSS
+  variables (:root dark + html.light overrides), Sun/Moon toggle in navbar
+  (data-testid navbar-theme-toggle), choice persisted via localStorage with
+  no-flash init script in index.html. Fixed stale hardcoded #0b0c0e in
+  App.css that kept the app shell dark in light mode. Verified dark -> light
+  -> persists after reload -> dark, with computed-style assertions.
 
 ## Backlog
 - P0: Replace fictional placeholder contact details/CEO info with real data

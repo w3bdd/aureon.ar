@@ -1,4 +1,5 @@
 .App {
     min-height: 100vh;
-    background-color: #0b0c0e;
+    background-color: var(--obsidian);
+    transition: background-color 0.5s ease;
 }
