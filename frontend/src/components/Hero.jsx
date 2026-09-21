@@ -10,7 +10,7 @@ import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { MaskedLine, Counter, EASE, scrollToId } from "./Reveal";
 
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1670589953882-b94c9cb380f5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBsdXh1cnklMjBhcmNoaXRlY3R1cmUlMjBpbnRlcmlvciUyMGV4dGVyaW9yJTIwbWluaW1hbGlzdCUyMGhvdXNlfGVufDB8fHx8MTc4OTk2NjMxNHww&ixlib=rb-4.1.0&q=85";
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=80";
 
 const STATS = [
   { end: 10, suffix: "+", label: "Years of Legacy" },
@@ -51,7 +51,8 @@ export default function Hero() {
           alt="Modern architectural residence at dusk"
           className="w-full h-full object-cover scale-[1.12]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-obsidian/75 via-obsidian/45 to-obsidian" />
+        <div className="absolute inset-0 bg-gradient-to-b from-obsidian/70 via-obsidian/40 to-obsidian" />
+        <div className="absolute inset-0 bg-bronze/[0.08] mix-blend-soft-light" />
         <div className="absolute inset-0 blueprint-grid" />
       </motion.div>
 
@@ -64,7 +65,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.45, duration: 0.9 }}
-            className="eyebrow"
+            className="eyebrow [text-shadow:0_1px_14px_rgba(27,25,21,0.9)]"
             data-testid="hero-tagline"
           >
             Aureon Architecture &amp; Builders — Est. 2016 · Angeles City, Pampanga
@@ -104,7 +105,7 @@ export default function Hero() {
             <button
               data-testid="hero-explore-projects-button"
               onClick={() => scrollToId("#portfolio")}
-              className="inline-flex items-center gap-2 border border-edge text-bone text-sm font-medium px-7 py-3.5 hover:border-bronze hover:text-bronze transition-colors duration-300"
+              className="inline-flex items-center gap-2 border border-edge rounded-full text-bone text-sm font-medium px-7 py-3.5 hover:border-bronze hover:text-bronze transition-colors duration-300"
             >
               Explore Projects
               <ArrowUpRight className="w-4 h-4" />
@@ -112,7 +113,7 @@ export default function Hero() {
             <button
               data-testid="hero-book-consultation-button"
               onClick={() => scrollToId("#contact")}
-              className="inline-flex items-center gap-2 bg-bronze text-obsidian text-sm font-semibold px-7 py-3.5 hover:bg-bone transition-colors duration-300"
+              className="inline-flex items-center gap-2 bg-bronze rounded-full text-obsidian text-sm font-semibold px-7 py-3.5 hover:bg-bone transition-colors duration-300"
             >
               Book a Consultation
             </button>

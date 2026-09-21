@@ -21,11 +21,12 @@ export default function Navbar() {
 
   return (
     <>
+      <div className="fixed top-4 sm:top-6 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
       <motion.header
         initial={{ y: -90, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 1.9, duration: 0.9, ease: EASE }}
-        className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-6xl"
+        className="w-full max-w-6xl pointer-events-auto"
       >
         <div className="backdrop-blur-xl bg-obsidian/80 border border-line rounded-full pl-4 pr-3 sm:pl-6 sm:pr-4 py-3 flex items-center justify-between shadow-2xl shadow-black/40">
           <button
@@ -74,6 +75,7 @@ export default function Navbar() {
           </div>
         </div>
       </motion.header>
+      </div>
 
       <AnimatePresence>
         {open && (

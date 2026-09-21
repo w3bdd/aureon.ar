@@ -25,8 +25,8 @@ const PROJECTS = [
     area: "480 sqm",
     duration: "14 months",
     scope: "Design & Build",
-    desc: "A modern courtyard residence composed around filtered daylight — cantilevered volumes, warm stone, and deep eaves tuned to the Central Luzon climate.",
-    img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1400&q=80",
+    desc: "A modern courtyard residence composed around filtered daylight — cantilevered volumes, warm stone, timber screens, and deep eaves tuned to the Central Luzon climate.",
+    img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80",
     span: "md:col-span-7",
   },
   {
@@ -37,8 +37,8 @@ const PROJECTS = [
     area: "320 sqm",
     duration: "11 months",
     scope: "Architecture & Construction",
-    desc: "A minimalist family home where a double-height living hall anchors daily life — glass, timber, and board-formed concrete in quiet dialogue.",
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
+    desc: "A warm timber-and-concrete family home where a double-height living hall anchors daily life — glass, wood, and stone in quiet dialogue.",
+    img: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1400&q=80",
     span: "md:col-span-5",
   },
   {
@@ -49,8 +49,8 @@ const PROJECTS = [
     area: "560 sqm",
     duration: "16 months",
     scope: "Design & Build",
-    desc: "An evening-oriented residence — west-facing terraces, a lantern-lit pool court, and interiors designed to hold the golden hour.",
-    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80",
+    desc: "An evening-oriented residence — west-facing terraces, a lantern-lit pool court, and interiors designed to hold the tropical golden hour.",
+    img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=80",
     span: "md:col-span-5",
   },
   {
@@ -61,8 +61,8 @@ const PROJECTS = [
     area: "1,850 sqm",
     duration: "20 months",
     scope: "General Construction",
-    desc: "A five-storey professional hub with a sculpted facade grid — engineered for flexible tenancies, daylight autonomy, and low operating cost.",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80",
+    desc: "A five-storey professional hub with daylit work floors wrapped in warm timber and glass — engineered for flexible tenancies and low operating cost.",
+    img: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80",
     span: "md:col-span-7",
   },
   {
@@ -73,8 +73,8 @@ const PROJECTS = [
     area: "2,400 sqm",
     duration: "22 months",
     scope: "Design & Build",
-    desc: "A retail and dining destination anchored by a landscaped forecourt — high-visibility frontage paired with efficient back-of-house planning.",
-    img: "https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?auto=format&fit=crop&w=1400&q=80",
+    desc: "A retail and dining destination anchored by a landscaped forecourt — warm shopfront interiors paired with efficient back-of-house planning.",
+    img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=80",
     span: "md:col-span-7",
   },
   {
@@ -97,8 +97,8 @@ const PROJECTS = [
     area: "1.2 hectares",
     duration: "Ongoing — Phase II",
     scope: "Master Planning & Construction",
-    desc: "A twelve-unit terraced residential development stepping with the terrain — shared greens, rainwater harvesting, and a unified material palette.",
-    img: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=1400&q=80",
+    desc: "A twelve-unit terraced residential development stepping with the terrain — shared greens, rainwater harvesting, and a warm, unified material palette.",
+    img: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
     span: "md:col-span-6",
   },
   {
@@ -107,10 +107,10 @@ const PROJECTS = [
     year: "2026",
     location: "Angeles City Heritage District",
     area: "3,600 sqm",
-    duration: "In construction",
+    duration: "In design development",
     scope: "Property Development",
     desc: "Adaptive reuse of a mid-century industrial shell into eight loft residences — original trusses retained, new life inserted with surgical precision.",
-    img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=80",
+    img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80",
     span: "md:col-span-6",
   },
 ];
@@ -159,7 +159,7 @@ export default function Portfolio() {
                   key={f.label}
                   data-testid={f.testid}
                   onClick={() => setFilter(f.label)}
-                  className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] px-4 py-2.5 border transition-colors duration-300 ${
+                  className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] px-4 py-2.5 border rounded-full transition-colors duration-300 ${
                     filter === f.label
                       ? "border-bronze text-bronze"
                       : "border-line text-faint hover:text-bone hover:border-edge"
@@ -259,7 +259,7 @@ export default function Portfolio() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 32, opacity: 0 }}
               transition={{ duration: 0.55, ease: EASE }}
-              className="relative w-full max-w-5xl bg-onyx border border-line grid md:grid-cols-2 max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-5xl bg-onyx border border-line rounded-2xl overflow-hidden grid md:grid-cols-2 max-h-[90vh] overflow-y-auto"
             >
               <div className="relative">
                 <img

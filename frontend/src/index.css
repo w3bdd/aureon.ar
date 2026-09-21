@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -45,30 +45,30 @@
     }
     body {
         margin: 0;
-        background-color: #0B0C0E;
-        color: #F4F3EF;
+        background-color: #1B1915;
+        color: #F3EBDB;
         font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
     }
     ::selection {
-        background: #D4A359;
-        color: #0B0C0E;
+        background: #C96F4A;
+        color: #1B1915;
     }
     ::-webkit-scrollbar {
         width: 10px;
     }
     ::-webkit-scrollbar-track {
-        background: #0B0C0E;
+        background: #1B1915;
     }
     ::-webkit-scrollbar-thumb {
-        background: #242832;
-        border: 2px solid #0B0C0E;
+        background: #3A3428;
+        border: 2px solid #1B1915;
         border-radius: 8px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: #B8863B;
+        background: #A85432;
     }
 }
 
@@ -111,13 +111,13 @@
     text-transform: uppercase;
     letter-spacing: 0.28em;
     font-size: 0.68rem;
-    color: #D4A359;
+    color: #C96F4A;
 }
 
 .blueprint-grid {
     background-image:
-        linear-gradient(rgba(244, 243, 239, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(244, 243, 239, 0.035) 1px, transparent 1px);
+        linear-gradient(rgba(243, 235, 219, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(243, 235, 219, 0.04) 1px, transparent 1px);
     background-size: 88px 88px;
 }
 
@@ -156,11 +156,7 @@
     font-feature-settings: "lnum" 1;
 }
 
-input, select, textarea {
-    border-radius: 0;
-}
-
 select option {
-    background-color: #121418;
-    color: #F4F3EF;
+    background-color: #23201A;
+    color: #F3EBDB;
 }

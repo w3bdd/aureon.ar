@@ -17,7 +17,7 @@ export default function Values() {
         <Reveal>
           <p className="eyebrow mb-12">Core Values · What Endures</p>
         </Reveal>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line rounded-2xl overflow-hidden">
           {VALUES.map((v, i) => (
             <Reveal key={v.name} delay={i * 0.06} y={26} className="bg-obsidian">
               <div

@@ -88,10 +88,10 @@ function App() {
         position="bottom-right"
         toastOptions={{
           style: {
-            background: "#181A20",
-            border: "1px solid #3A3F4E",
-            color: "#F4F3EF",
-            borderRadius: "2px",
+            background: "#2A261E",
+            border: "1px solid #4C4433",
+            color: "#F3EBDB",
+            borderRadius: "12px",
           },
         }}
       />

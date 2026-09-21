@@ -13,7 +13,7 @@ export default function Marquee() {
   return (
     <div
       data-testid="marquee-editorial-ribbon"
-      className="relative border-y border-line bg-onyx/70 py-5 overflow-hidden"
+      className="relative border-y border-line bg-palm/30 py-5 overflow-hidden"
     >
       <div className="flex w-max animate-marquee">
         {[0, 1].map((copy) => (

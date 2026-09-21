@@ -49,6 +49,17 @@ parallax hero moment.
 - E2E: page load, section scroll (lenis), filter click, modal open/close,
   full form submission with confirmation toast (ref AUR-2026-3729)
 
+## Changelog
+- 2026-09-21 (later): Fixed navbar bug — framer-motion `animate y` was
+  overriding Tailwind `-translate-x-1/2`, pushing the header pill off-screen
+  right; restructured with a centering wrapper. Verified in-frame and centered
+  at 1920px via browser assertions + screenshots.
+- 2026-09-21 (later): Restyled to Tropical Contemporary / Filipino Modern —
+  warm charcoal/sand/terracotta/deep-green palette, Fraunces serif replaces
+  Cormorant, rounded pills/chips/inputs mixed with clipped architectural
+  frames, deep-green marquee band, warmer portfolio photography
+  (timber/concrete/glass, tropical landscaping).
+
 ## Backlog
 - P0: Replace fictional placeholder contact details/CEO info with real data
 - P1: Email notifications on new enquiry (Resend-managed integration)

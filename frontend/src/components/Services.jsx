@@ -116,7 +116,7 @@ export default function Services() {
                             {s.items.map((item) => (
                               <span
                                 key={item}
-                                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ash border border-line px-3.5 py-2 hover:border-bronze/60 hover:text-bone transition-colors duration-300"
+                                className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ash border border-line rounded-full px-3.5 py-2 hover:border-bronze/60 hover:text-bone transition-colors duration-300"
                               >
                                 {item}
                               </span>

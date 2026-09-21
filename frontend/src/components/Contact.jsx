@@ -24,7 +24,7 @@ const INITIAL = {
 };
 
 const inputCls =
-  "w-full bg-onyx border border-line px-4 py-3.5 text-sm text-bone placeholder:text-faint outline-none focus:border-bronze transition-colors duration-300";
+  "w-full bg-onyx border border-line rounded-lg px-4 py-3.5 text-sm text-bone placeholder:text-faint outline-none focus:border-bronze transition-colors duration-300";
 const labelCls = "block font-mono text-[10px] uppercase tracking-[0.25em] text-faint mb-2.5";
 
 export default function Contact() {
@@ -118,7 +118,7 @@ export default function Contact() {
             <form
               data-testid="consultation-form"
               onSubmit={submit}
-              className="bg-surface border border-line p-6 sm:p-10"
+              className="bg-surface border border-line rounded-2xl p-6 sm:p-10"
             >
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
@@ -189,7 +189,7 @@ export default function Contact() {
                         key={s}
                         data-testid={`consultation-chip-${s.toLowerCase().replace(/[^a-z]+/g, "-")}`}
                         onClick={() => toggleService(s)}
-                        className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.12em] px-3.5 py-2.5 border transition-colors duration-300 ${
+                        className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.12em] px-3.5 py-2.5 border rounded-full transition-colors duration-300 ${
                           active
                             ? "border-bronze text-bronze bg-bronze/10"
                             : "border-line text-faint hover:text-bone hover:border-edge"
@@ -268,7 +268,7 @@ export default function Contact() {
                 data-testid="consultation-form-submit-button"
                 type="submit"
                 disabled={sending}
-                className="mt-9 w-full inline-flex items-center justify-center gap-2 bg-bronze text-obsidian text-sm font-semibold px-7 py-4 hover:bg-bone disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
+                className="mt-9 w-full inline-flex items-center justify-center gap-2 bg-bronze rounded-full text-obsidian text-sm font-semibold px-7 py-4 hover:bg-bone disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
               >
                 {sending ? (
                   <>

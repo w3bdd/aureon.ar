@@ -32,7 +32,7 @@ export default function Process() {
           </Reveal>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line border border-line rounded-2xl overflow-hidden">
           {STEPS.map((s, i) => (
             <Reveal key={s.step} delay={i * 0.07} y={30} className="bg-obsidian">
               <article

@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        serif: ['"Fraunces"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
@@ -19,17 +19,19 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       colors: {
-        obsidian: '#0B0C0E',
-        onyx: '#121418',
-        surface: '#181A20',
-        raised: '#20232C',
-        line: '#242832',
-        edge: '#3A3F4E',
-        bronze: '#D4A359',
-        bronzedeep: '#B8863B',
-        bone: '#F4F3EF',
-        ash: '#A3A8B5',
-        faint: '#686D7A',
+        obsidian: '#1B1915',
+        onyx: '#23201A',
+        surface: '#2A261E',
+        raised: '#332E24',
+        line: '#3A3428',
+        edge: '#4C4433',
+        bronze: '#C96F4A',
+        bronzedeep: '#A85432',
+        bone: '#F3EBDB',
+        ash: '#B3A78D',
+        faint: '#7C7160',
+        palm: '#2E4A3B',
+        palmlight: '#3F6151',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
