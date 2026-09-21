@@ -1,0 +1,259 @@
+{
+  "project_info": {
+    "name": "AUREON Architecture & Builders",
+    "app_type": "Awwwards SOTD-Level Architectural Flagship Experience",
+    "tagline": "Design. Build. Endure.",
+    "brand_line": "Creating thoughtful spaces. Building lasting structures. Continuing a family legacy.",
+    "established_year": 2016,
+    "location": "Angeles City, Pampanga, Philippines",
+    "founder": "Architect Adrian M. Aureon"
+  },
+  "art_direction": {
+    "archetype": "Architectural Monolith & Tactile Bronze (High-End Architectural Editorial)",
+    "tone": "Monolithic, authoritative, ultra-refined, enduring, meticulously engineered",
+    "theme_mode": "Dark Luxury Monolithic (#0B0C0E base background with warm stucco white typography and brushed bronze accents)",
+    "aesthetic_principles": [
+      "Monolithic Hierarchy: Vast spatial breathing room with surgical alignment grids inspired by blueprint blueprints",
+      "Tactile Materiality: Raw dark slate, concrete textures, wireframe crosshairs, and brushed bronze metallic highlights",
+      "Kinetic Storytelling: Masked line-by-line typographic reveals, Lenis smooth scrolling momentum, and cursor spotlight frames",
+      "Editorial Tension: Asymmetric grids, massive serif display titles paired with technical monospace coordinates and precise specs"
+    ]
+  },
+  "typography": {
+    "font_family_imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');"
+    ],
+    "headings": {
+      "font_family": "'Cormorant Garamond', Georgia, serif",
+      "font_weight": " font-light tracking-tight text-[#F4F3EF]",
+      "hero_h1": "text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.08] font-serif",
+      "section_h2": "text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight leading-tight font-serif",
+      "card_h3": "text-xl sm:text-2xl font-normal tracking-snug font-serif text-[#F4F3EF]"
+    },
+    "technical_accents": {
+      "font_family": "'JetBrains Mono', monospace",
+      "usage": "Coordinates, step numbers, stats, specs, overline labels, blueprint tags",
+      "class": "font-mono uppercase tracking-[0.25em] text-xs sm:text-sm text-[#D4A359]"
+    },
+    "body": {
+      "font_family": "'Plus Jakarta Sans', system-ui, sans-serif",
+      "font_weight": "font-normal leading-relaxed text-[#A3A8B5]",
+      "text_sizes": {
+        "large": "text-lg sm:text-xl font-light leading-relaxed text-[#C5C9D3]",
+        "base": "text-base font-normal leading-relaxed text-[#A3A8B5]",
+        "small": "text-sm font-normal leading-normal text-[#7E8494]"
+      }
+    }
+  },
+  "color_system": {
+    "background_primary": "#0B0C0E",
+    "background_secondary": "#121418",
+    "surface_card": "#181A20",
+    "surface_card_hover": "#20232C",
+    "border_grid": "#242832",
+    "border_highlight": "#3A3F4E",
+    "accent_primary": "#D4A359",
+    "accent_secondary": "#B8863B",
+    "accent_glow": "rgba(212, 163, 89, 0.18)",
+    "text_primary": "#F4F3EF",
+    "text_secondary": "#A3A8B5",
+    "text_muted": "#686D7A",
+    "status": {
+      "success": "#34D399",
+      "warning": "#F59E0B",
+      "info": "#60A5FA"
+    },
+    "forbidden_colors": [
+      "#7351B7",
+      "#1B93A4",
+      "pure #000000 without tint",
+      "bright neon magenta"
+    ]
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto",
+    "section_vertical_spacing": "py-24 lg:py-36",
+    "grid_gap": "gap-8 lg:gap-12",
+    "card_padding": "p-6 sm:p-8 lg:p-10",
+    "asymmetric_bento_rules": "Use 12-column grid system with offsets. Primary hero items span 8 cols, secondary visual cards span 4 cols. Maintain explicit border lines with border-[#242832] for architectural precision."
+  },
+  "motion_and_interactions": {
+    "libraries": [
+      "framer-motion (for scroll reveals, line masks, staggered lists, micro-interactions)",
+      "lenis (for ultra-smooth momentum scroll experience)"
+    ],
+    "hero_reveal": {
+      "type": "Signature line-by-line masked clip reveal",
+      "description": "On load, dark background overlays retract vertically while typography slides up from hidden overflow line masks with custom cubic-bezier ease curves."
+    },
+    "hover_effects": {
+      "cards": "border-color transition from #242832 to #D4A359/50, background elevation, subtle scale up on image clipped frame",
+      "buttons": "Brushed bronze background shift, text color lock to deep black, subtle inner glow ring expansion",
+      "images": "Grayscale to rich saturated warm architectural light transition with custom crosshair spotlight overlay"
+    },
+    "interactive_elements": {
+      "custom_cursor": "Crosshair + blueprint measurement badge following mouse over project showcase section",
+      "blueprint_toggle": "Interactive wireframe / solid rendering view mode for selected signature project cards"
+    }
+  },
+  "components_structure": {
+    "header_nav": {
+      "type": "Floating Glassmorphism Architectural Bar",
+      "classes": "fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-6xl backdrop-blur-xl bg-[#0B0C0E]/80 border border-[#242832] rounded-full px-6 py-4 flex items-center justify-between shadow-2xl",
+      "logo": "AUREON text logo in serif font with monogram emblem in bronze",
+      "nav_links": ["Philosophy", "Services", "Portfolio", "Approach", "Founder", "Contact"],
+      "primary_cta": "Request Consultation"
+    },
+    "hero_section": {
+      "type": "Kinetic Architectural Showcase Hero",
+      "features": [
+        "Massive line-masked Cormorant Garamond title: 'Design. Build. Endure.'",
+        "Interactive 3D wireframe grid canvas / parametric architectural structure background",
+        "Editorial marquee ribbon with legacy timestamp: 'EST. 2016 • ANGELES CITY, PAMPANGA • CONTINUING A FAMILY LEGACY • ARCHITECTURE & GENERAL CONSTRUCTION'",
+        "Quick stats bar with animated numbers (10+ Years Legacy, 120+ Masterpieces, 100% Structural Guarantee)"
+      ]
+    },
+    "manifesto_philosophy": {
+      "type": "Numbered Chapter Manifesto",
+      "chapters": [
+        {"num": "01", "title": "Thoughtful Spatial Intelligence", "desc": "Designing structures that harmonally react to climate, sunlight, human flow, and surrounding landscape."},
+        {"num": "02", "title": "Precision Structural Mastery", "desc": "Uncompromising engineering standards where every millimeter of steel, concrete, and stone is crafted for longevity."},
+        {"num": "03", "title": "Generational Legacy", "desc": "Continuing the Aureon family legacy of integrity, craftsmanship, and timeless architectural dignity."}
+      ]
+    },
+    "services_index": {
+      "type": "Interactive Architectural Accordion & Spotlight Matrix",
+      "services": [
+        {"code": "SRV-01", "name": "Architecture & Design", "desc": "Conceptual blueprints, 3D spatial modeling, structural feasibility & interior architecture."},
+        {"code": "SRV-02", "name": "Design & Build", "desc": "Turnkey single-point responsibility integrating design vision with seamless construction."},
+        {"code": "SRV-03", "name": "General Construction", "desc": "High-caliber structural execution for residential estates, commercial hubs & institutional complexes."},
+        {"code": "SRV-04", "name": "Renovation & Remodeling", "desc": "Transformative architectural upgrades preserving historical character while introducing contemporary luxury."},
+        {"code": "SRV-05", "name": "Project Management", "desc": "Surgical cost control, timeline governance, material sourcing & site engineering supervision."}
+      ]
+    },
+    "portfolio_showcase": {
+      "type": "Clipped Frame Filterable Architecture Gallery",
+      "sectors": ["All", "Residential", "Commercial", "Institutional", "Property Development"],
+      "features": [
+        "Spotlight photography hover with architectural elevation dimensions overlay",
+        "Filterable tab state with smooth Framer Motion layout animations",
+        "Detailed project view modal with blueprint details & site specs"
+      ]
+    },
+    "six_step_process": {
+      "type": "Horizontal Architectural Blueprint Timeline",
+      "steps": [
+        {"step": "01", "name": "Discover", "desc": "Site orientation, vision mapping, climate audit & client objectives."},
+        {"step": "02", "name": "Design", "desc": "3D spatial rendering, material selection & structural aesthetic drafting."},
+        {"step": "03", "name": "Plan", "desc": "Engineering schematics, municipal permits, budgeting & execution schedule."},
+        {"step": "04", "name": "Build", "desc": "Rigorous site construction led by master engineers and project supervisors."},
+        {"step": "05", "name": "Complete", "desc": "Quality audit, structural certification, aesthetic refinement & formal handover."},
+        {"step": "06", "name": "Support", "desc": "Post-handover maintenance guarantee, structural inspections & ongoing care."}
+      ]
+    },
+    "core_values": {
+      "type": "Architectural Values Grid",
+      "values": ["Integrity", "Quality", "Craftsmanship", "Collaboration", "Responsibility", "Innovation", "Legacy"]
+    },
+    "founder_spotlight": {
+      "type": "Editorial Biography & Founder Note",
+      "name": "Architect Adrian M. Aureon",
+      "role": "Founder & Principal Architect",
+      "quote": "An enduring building is not merely constructed with concrete and steel; it is forged from conviction, integrity, and a promise to the future.",
+      "image_url": "https://images.pexels.com/photos/3776969/pexels-photo-3776969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "consultation_enquiry_form": {
+      "type": "Interactive Project Scope & Consultation Calculator",
+      "fields": [
+        "Full Name",
+        "Email & Phone",
+        "Project Sector (Residential, Commercial, Institutional, Development)",
+        "Service Required (Selectable chips)",
+        "Estimated Budget Range & Timeline",
+        "Project Location / Site Details",
+        "Special Requirements / Vision Message"
+      ],
+      "toast_feedback": "Integrated Sonner toast upon submission with custom reference ID."
+    },
+    "footer": {
+      "type": "Monolithic Architectural Footer",
+      "corporate_info": {
+        "company": "AUREON ARCHITECTURE & BUILDERS",
+        "address": "Angeles City, Pampanga, Philippines",
+        "contact_phone": "+63 (045) 892-3400 / +63 917 555 8292",
+        "contact_email": "contact@aureonbuilders.com",
+        "office_hours": "Mon - Sat: 8:00 AM - 6:00 PM PST",
+        "copyright": "© 2016-2026 AUREON Architecture & Builders. All Rights Reserved."
+      }
+    }
+  },
+  "curated_media_assets": {
+    "hero_bg": "https://images.unsplash.com/photo-1670589953882-b94c9cb380f5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBsdXh1cnklMjBhcmNoaXRlY3R1cmUlMjBpbnRlcmlvciUyMGV4dGVyaW9yJTIwbWluaW1hbGlzdCUyMGhvdXNlfGVufDB8fHx8MTc4OTk2NjMxNHww&ixlib=rb-4.1.0&q=85",
+    "residential_estate": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBsdXh1cnklMjBhcmNoaXRlY3R1cmUlMjBpbnRlcmlvciUyMGV4dGVyaW9yJTIwbWluaW1hbGlzdCUyMGhvdXNlfGVufDB8fHx8MTc4OTk2NjMxNHww&ixlib=rb-4.1.0&q=85",
+    "commercial_complex": "https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsdXh1cnklMjBhcmNoaXRlY3R1cmUlMjBpbnRlcmlvciUyMGV4dGVyaW9yJTIwbWluaW1hbGlzdCUyMGhvdXNlfGVufDB8fHx8MTc4OTk2NjMxNHww&ixlib=rb-4.1.0&q=85",
+    "institutional_villa": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBsdXh1cnklMjBhcmNoaXRlY3R1cmUlMjBpbnRlcmlvciUyMGV4dGVyaW9yJTIwbWluaW1hbGlzdCUyMGhvdXNlfGVufDB8fHx8MTc4OTk2NjMxNHww&ixlib=rb-4.1.0&q=85",
+    "construction_site_plan": "https://images.pexels.com/photos/8482551/pexels-photo-8482551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "architects_blueprints": "https://images.pexels.com/photos/7937367/pexels-photo-7937367.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "founder_portrait": "https://images.pexels.com/photos/3776969/pexels-photo-3776969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "testing_and_automation_requirements": {
+    "rule": "ALL interactive components (buttons, links, form fields, filter tabs, modal toggles, dropdowns) MUST have explicit data-testid attributes formatted in kebab-case.",
+    "required_data_testids": [
+      "navbar-logo-link",
+      "navbar-nav-item-philosophy",
+      "navbar-nav-item-services",
+      "navbar-nav-item-portfolio",
+      "navbar-nav-item-approach",
+      "navbar-nav-item-founder",
+      "navbar-nav-item-contact",
+      "navbar-cta-consultation-button",
+      "hero-title",
+      "hero-tagline",
+      "hero-explore-projects-button",
+      "hero-book-consultation-button",
+      "marquee-editorial-ribbon",
+      "manifesto-chapter-1",
+      "manifesto-chapter-2",
+      "manifesto-chapter-3",
+      "service-card-architecture-design",
+      "service-card-design-build",
+      "service-card-general-construction",
+      "service-card-renovation-remodeling",
+      "service-card-project-management",
+      "portfolio-filter-all",
+      "portfolio-filter-residential",
+      "portfolio-filter-commercial",
+      "portfolio-filter-institutional",
+      "portfolio-filter-development",
+      "portfolio-project-card-1",
+      "portfolio-project-card-2",
+      "portfolio-project-card-3",
+      "portfolio-project-modal-close-button",
+      "step-card-01-discover",
+      "step-card-02-design",
+      "step-card-03-plan",
+      "step-card-04-build",
+      "step-card-05-complete",
+      "step-card-06-support",
+      "founder-biography-section",
+      "consultation-form",
+      "consultation-input-full-name",
+      "consultation-input-email",
+      "consultation-input-phone",
+      "consultation-select-sector",
+      "consultation-input-budget",
+      "consultation-input-location",
+      "consultation-input-message",
+      "consultation-form-submit-button",
+      "footer-corporate-address",
+      "footer-phone-link",
+      "footer-email-link"
+    ]
+  },
+  "instructions_for_implementation": {
+    "file_extension_note": "Ensure code files use JavaScript (.js / .jsx) extensions.",
+    "package_additions": "Ensure lenis (@studio-freight/lenis or lenis) and framer-motion are integrated for momentum scrolling and reveal mechanics.",
+    "contrast_and_accessibility": "Always enforce high text contrast (e.g. #F4F3EF on #0B0C0E background). Never set header dropdowns or mobile overlays to total transparent backgrounds without a solid/heavy blurred backdrop.",
+    "sonner_toast": "Utilize sonner for enquiry form submission toast feedback."
+  }
+}

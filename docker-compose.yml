@@ -1,0 +1,27 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: aureon-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: aureon-backend
+    restart: unless-stopped
+    env_file: ./backend/.env
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: aureon-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:
