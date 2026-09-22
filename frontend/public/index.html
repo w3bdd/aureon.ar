@@ -13,10 +13,12 @@
         <title>Aureon Architecture & Builders — Design. Build. Endure.</title>
         <script>
             try {
-                if (localStorage.getItem("aureon-theme") === "light") {
+                if (localStorage.getItem("aureon-theme") !== "dark") {
                     document.documentElement.classList.add("light");
                 }
-            } catch (e) {}
+            } catch (e) {
+                document.documentElement.classList.add("light");
+            }
         </script>
         <script>window.addEventListener("error",function(e){if(e.error instanceof DOMException&&e.error.name==="DataCloneError"&&e.message&&e.message.includes("PerformanceServerTiming")){e.stopImmediatePropagation();e.preventDefault()}},true);</script>
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>

@@ -73,6 +73,10 @@ parallax hero moment.
   scrim (vertical + left gradients) and added theme-aware hero-glow
   text-shadow. Verified: computed pill bg opaque in both themes, hero and
   all sections readable in dark and light, modal backdrop dims correctly.
+- 2026-09-22: Light mode is now the default for first-time visitors
+  (index.html init adds html.light unless localStorage is explicitly
+  "dark"); a visitor's explicit choice still persists. Verified: fresh
+  visit renders light (rgb(245,239,226)), choosing dark survives reload.
 
 ## Backlog
 - P0: Replace fictional placeholder contact details/CEO info with real data
