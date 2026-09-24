@@ -91,6 +91,13 @@ parallax hero moment.
   yarn build succeeds with relative paths, backend-mode form submission
   still returns a reference ID, site renders clean. Web3Forms path needs
   the user's key to test live.
+- 2026-09-24 (later): Fixed GitHub Actions failure at setup-node —
+  `cache: yarn` + `cache-dependency-path: frontend/yarn.lock` threw
+  "Some specified paths were not resolved". Removed the cache block
+  (static build does not need it). Verified: workflow YAML parses, both
+  jobs intact, yarn.lock present and not gitignored, and a simulated CI
+  build (REACT_APP_BACKEND_URL="" + WEB3FORMS_KEY set) compiles, bakes
+  the static form mode, and excludes the preview backend URL.
 
 ## Backlog
 - P0: Replace fictional placeholder contact details/CEO info with real data

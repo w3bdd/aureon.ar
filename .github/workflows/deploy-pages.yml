@@ -24,8 +24,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
-          cache-dependency-path: frontend/yarn.lock
       - run: yarn install --frozen-lockfile
         working-directory: frontend
       # Empty BACKEND_URL => static mode: the contact form uses Web3Forms
