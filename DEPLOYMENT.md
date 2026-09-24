@@ -1,25 +1,38 @@
-# AUREON Architecture & Builders — VPS Deployment Guide
+# AUREON Architecture & Builders — Deployment Guide
 
-This repository ships with everything needed to deploy the full stack
-(React frontend + FastAPI backend + MongoDB) on any Linux virtual private
-server using Docker.
+Two supported targets:
 
-```
-docker-compose.yml          Orchestrates all three services
-backend/Dockerfile          FastAPI + uvicorn on port 8001
-frontend/Dockerfile         React build served by nginx on port 80
-frontend/nginx.conf         SPA routing + /api reverse proxy + static caching
-```
+- **A. Virtual Private Server** — full stack (site + enquiry API + database) via Docker Compose.
+- **B. GitHub Pages** — static site only; the consultation form automatically
+  switches to Web3Forms (email delivery) or a pre-filled mailto fallback.
+
+The contact form picks its mode at build time:
+
+| Build environment | Form behaviour |
+| --- | --- |
+| `REACT_APP_BACKEND_URL` set | POST to FastAPI `/api/enquiries` (MongoDB + reference ID) |
+| No backend URL, `REACT_APP_WEB3FORMS_KEY` set | Sends to the company inbox via Web3Forms |
+| Neither set | Opens the visitor's email app with a pre-filled message |
 
 ---
 
-## 1. Provision the server
+## A. VPS deployment (full stack)
+
+### Files
+
+```
+docker-compose.yml          mongo + backend + frontend
+backend/Dockerfile          FastAPI + uvicorn on :8001 (slim requirements-prod.txt)
+frontend/Dockerfile         React build served by nginx on :80
+frontend/nginx.conf         SPA routing + /api reverse proxy + static caching
+```
+
+### 1. Provision the server
 
 - Ubuntu 24.04 LTS (or 22.04), 1 vCPU / 2 GB RAM minimum, 25 GB disk.
-- A registered domain with an **A record** pointing at the server's public IP
-  (e.g. `aureonbuilders.com` and `www.aureonbuilders.com`).
+- A domain with an **A record** pointing at the server's public IP.
 
-## 2. Install Docker
+### 2. Install Docker
 
 ```bash
 ssh ubuntu@YOUR_SERVER_IP
@@ -27,31 +40,26 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y ca-certificates curl git
 curl -fsSL https://get.docker.com | sudo sh
 sudo usermod -aG docker $USER && newgrp docker
-docker compose version   # verify the compose plugin
+docker compose version
 ```
 
-## 3. Firewall
+### 3. Firewall
 
 ```bash
-sudo ufw allow OpenSSH
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
+sudo ufw allow OpenSSH && sudo ufw allow 80/tcp && sudo ufw allow 443/tcp
 sudo ufw enable
 ```
 
-## 4. Upload the code
-
-Either clone from your Git remote, or copy from your machine:
+### 4. Upload the code
 
 ```bash
 git clone <your-repo-url> aureon && cd aureon
-# or, from your local machine:
-# rsync -avz --exclude node_modules --exclude build ./ ubuntu@YOUR_SERVER_IP:~/aureon
+# or: rsync -avz --exclude node_modules --exclude build ./ ubuntu@YOUR_SERVER_IP:~/aureon
 ```
 
-## 5. Configure environment
+### 5. Configure environment
 
-**backend/.env** — point MongoDB at the compose service:
+**backend/.env**:
 
 ```
 MONGO_URL="mongodb://mongo:27017"
@@ -59,24 +67,19 @@ DB_NAME="aureon"
 CORS_ORIGINS="https://yourdomain.com"
 ```
 
-**frontend/.env** — leave `REACT_APP_BACKEND_URL` empty (or unset) so the site
-calls the API same-origin; nginx proxies `/api/*` to the backend container:
+**Frontend**: nothing to set. `frontend/.env` is excluded from the Docker image
+(`.dockerignore`), and the Dockerfile builds with `REACT_APP_BACKEND_URL=""`
+so the site calls the API same-origin; nginx proxies `/api/*` to the backend.
 
-```
-REACT_APP_BACKEND_URL=
-```
-
-## 6. Build and launch
+### 6. Build and launch
 
 ```bash
 docker compose up -d --build
-docker compose ps          # all three services "Up"
+docker compose ps
 curl http://localhost/api/health   # -> {"status":"ok","service":"aureon-api"}
 ```
 
-The site is now live on port 80.
-
-## 7. HTTPS (recommended: Caddy in front)
+### 7. HTTPS (recommended: Caddy in front)
 
 ```bash
 sudo apt install -y caddy
@@ -95,36 +98,68 @@ sudo systemctl reload caddy
 ```
 
 Caddy provisions and renews Let's Encrypt certificates automatically.
-Alternative: `sudo apt install certbot python3-certbot-nginx` and terminate TLS
-on a host-level nginx instead.
 
-## 8. Operations
+### 8. Operations
 
 ```bash
-# Update after a code change
-git pull && docker compose up -d --build
-
-# Logs
-docker compose logs -f backend
-docker compose logs -f frontend
-
-# Database backup (run via cron, e.g. nightly)
-docker exec aureon-mongo mongodump --db aureon --archive > backup-$(date +%F).archive
-
-# Restore
-docker exec -i aureon-mongo mongorestore --db aureon --archive < backup-YYYY-MM-DD.archive
+git pull && docker compose up -d --build          # update
+docker compose logs -f backend                    # logs
+docker exec aureon-mongo mongodump --db aureon --archive > backup-$(date +%F).archive   # backup
+docker exec -i aureon-mongo mongorestore --db aureon --archive < backup-YYYY-MM-DD.archive  # restore
 ```
 
-## 9. Enquiry data
+Enquiry submissions live in the `enquiries` collection (`DB_NAME`); each gets a
+reference ID in the format `AUR-YYYY-NNNN`.
 
-Consultation form submissions are stored in the `enquiries` collection of the
-MongoDB database (`DB_NAME`). Each submission receives a reference ID in the
-format `AUR-YYYY-NNNN` shown to the client on confirmation.
+---
+
+## B. GitHub Pages (static site)
+
+The repo ships with `.github/workflows/deploy-pages.yml` — every push to
+`main` that touches `frontend/**` builds and publishes the site.
+
+### 1. Enable Pages
+
+Repo **Settings → Pages → Source: GitHub Actions**.
+
+### 2. (Recommended) Email delivery for the form
+
+1. Create a free access key at https://web3forms.com (verify the destination
+   email, e.g. `projects@aureonbuilders.example`).
+2. Repo **Settings → Secrets and variables → Actions → Variables → New
+   repository variable**: name `WEB3FORMS_KEY`, value = the access key.
+   (The key is a public client-side alias, safe to embed in a static bundle.)
+
+Without this variable the form still works: it opens the visitor's email app
+with a fully pre-filled enquiry addressed to the company.
+
+### 3. Push to main
+
+```bash
+git push origin main
+```
+
+The workflow builds `frontend/` with an empty `REACT_APP_BACKEND_URL` (static
+mode) and publishes to `https://<user>.github.io/<repo>/` — asset paths are
+relative (`"homepage": "."` in `frontend/package.json`), so project sites,
+user/organization sites, and custom domains all work.
+
+### 4. (Optional) Custom domain
+
+Add a `frontend/public/CNAME` file containing your domain, point its DNS at
+GitHub Pages, and enforce HTTPS in repo settings.
+
+---
 
 ## Troubleshooting
 
-- **Site loads but form fails** — check `docker compose logs backend` and that
-  `MONGO_URL` is `mongodb://mongo:27017` (the compose service name).
-- **Blank page on refresh of a deep link** — the nginx `try_files ... /index.html`
-  fallback handles this; confirm you are serving via the provided nginx.conf.
-- **Rebuild not taking effect** — always pass `--build` to `docker compose up -d`.
+- **Form fails on VPS** — `docker compose logs backend`; ensure
+  `MONGO_URL=mongodb://mongo:27017` (compose service name).
+- **Form fails on Pages** — check the `WEB3FORMS_KEY` variable and that the
+  Web3Forms key's email is verified; test from the real Pages URL.
+- **Blank page on refresh of a deep link (VPS)** — nginx `try_files` fallback
+  handles this; confirm the site is served with the provided `nginx.conf`.
+- **Assets 404 on Pages** — ensure the deployed build came from the workflow
+  (it builds with relative paths via `"homepage": "."`).
+- **Rebuild not taking effect (VPS)** — always pass `--build` to
+  `docker compose up -d`.

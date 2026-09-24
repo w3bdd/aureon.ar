@@ -4,7 +4,20 @@ import { toast } from "sonner";
 import { MapPin, Phone, Mail, Clock, ArrowUpRight, Loader2 } from "lucide-react";
 import { Reveal, SectionHead } from "./Reveal";
 
-const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "";
+const API = `${BACKEND_URL}/api`;
+const WEB3FORMS_KEY = process.env.REACT_APP_WEB3FORMS_KEY || "";
+
+const buildSummary = (f) =>
+  [
+    `Sector: ${f.sector}`,
+    `Services: ${f.services.length ? f.services.join(", ") : "Not specified"}`,
+    `Budget: ${f.budget || "Not specified"}`,
+    `Timeline: ${f.timeline || "Not specified"}`,
+    `Location: ${f.location}`,
+    "",
+    f.message,
+  ].join("\n");
 
 const SECTORS = ["Residential", "Commercial", "Institutional", "Property Development"];
 const SERVICE_CHIPS = ["Architecture & Design", "Design & Build", "General Construction", "Renovation & Remodeling", "Project Management"];
@@ -21,6 +34,7 @@ const INITIAL = {
   timeline: "",
   location: "",
   message: "",
+  botcheck: false,
 };
 
 const inputCls =
@@ -42,20 +56,54 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
+    if (form.botcheck) {
+      setForm(INITIAL);
+      return;
+    }
     setSending(true);
     try {
-      const { data } = await axios.post(`${API}/enquiries`, form);
-      toast.success("Enquiry received", {
-        description: `Reference ${data.reference_id} — our team will respond within one business day.`,
-      });
+      if (BACKEND_URL) {
+        const { data } = await axios.post(`${API}/enquiries`, form);
+        toast.success("Enquiry received", {
+          description: `Reference ${data.reference_id} — our team will respond within one business day.`,
+        });
+      } else if (WEB3FORMS_KEY) {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            subject: `Aureon Project Consultation — ${form.sector}`,
+            from_name: "Aureon Website",
+            name: form.full_name,
+            email: form.email,
+            phone: form.phone,
+            message: buildSummary(form),
+          }),
+        });
+        const json = await res.json();
+        if (!res.ok || !json.success) throw new Error(json.message || "Submission failed");
+        toast.success("Enquiry sent", {
+          description: "Thank you — our team will respond within one business day.",
+        });
+      } else {
+        const subject = encodeURIComponent(`Aureon Project Consultation — ${form.sector}`);
+        const body = encodeURIComponent(
+          `Name: ${form.full_name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\n${buildSummary(form)}`
+        );
+        window.location.href = `mailto:projects@aureonbuilders.example?subject=${subject}&body=${body}`;
+        toast.success("Opening your email app", {
+          description: "Your enquiry is pre-filled — just press send.",
+        });
+      }
       setForm(INITIAL);
     } catch (err) {
       const detail = err?.response?.data?.detail;
       toast.error("Submission failed", {
         description:
-          typeof detail === "string"
-            ? detail
-            : "Please check the form and try again, or email projects@aureonbuilders.example.",
+          (typeof detail === "string" && detail) ||
+          err?.message ||
+          "Please check the form and try again, or email projects@aureonbuilders.example.",
       });
     } finally {
       setSending(false);
@@ -264,6 +312,15 @@ export default function Contact() {
                 />
               </div>
 
+              <input
+                type="checkbox"
+                tabIndex={-1}
+                aria-hidden="true"
+                autoComplete="off"
+                className="hidden"
+                checked={form.botcheck}
+                onChange={(e) => setForm((f) => ({ ...f, botcheck: e.target.checked }))}
+              />
               <button
                 data-testid="consultation-form-submit-button"
                 type="submit"

@@ -77,6 +77,20 @@ parallax hero moment.
   (index.html init adds html.light unless localStorage is explicitly
   "dark"); a visitor's explicit choice still persists. Verified: fresh
   visit renders light (rgb(245,239,226)), choosing dark survives reload.
+- 2026-09-24: GitHub Pages support + deployment cleanup. Contact form is
+  now tri-mode: FastAPI/MongoDB when REACT_APP_BACKEND_URL is set (VPS,
+  preview), Web3Forms email delivery when REACT_APP_WEB3FORMS_KEY is set
+  (static hosts), and a pre-filled mailto fallback otherwise. Added
+  honeypot spam field, .github/workflows/deploy-pages.yml (builds with
+  empty BACKEND_URL + repo variable WEB3FORMS_KEY), "homepage": "." for
+  relative asset paths, .dockerignore files (frontend .env now excluded
+  from the VPS image — fixes preview URL being baked into VPS builds),
+  slim backend/requirements-prod.txt used by the backend Dockerfile,
+  README rewritten, DEPLOYMENT.md rewritten for both targets, and
+  platform analytics/overlay scripts stripped from index.html. Verified:
+  yarn build succeeds with relative paths, backend-mode form submission
+  still returns a reference ID, site renders clean. Web3Forms path needs
+  the user's key to test live.
 
 ## Backlog
 - P0: Replace fictional placeholder contact details/CEO info with real data
